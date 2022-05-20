@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .fas{
+         font-size: 2rem;
+         /* margin-right: 30px;
+         margin-left: 30px;   */
+        }
+        .icon-plat{
+            width: 800px;
+            height: 50px;
+            margin-left: 100px;
+            display: flex;
+            background-color: lightcyan;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .red{
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            background-color: lightcoral;
+        }
+        .green{
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            background-color: lightgreen;
+        }
+        .blue{
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            background-color: lightskyblue;
+
+        }
+       </style>
+      
+       
+
+</head>
+<body>
+    
+    <div class="icon-plat">
+
+     <i class="fas fa-square"></i>
+    <i class="fas fa-grip-lines-vertical"></i>
+    <i class="fas fa-pen-fancy"></i>
+    <div class="red"></div>
+    <div class="green"></div>
+    <div class="blue"></div>
+    </div>
+    
+
+    <script>
+        let canvasBoard=document.querySelector("canvas");
+    
+        let rectTool=document.querySelector(".fa-square");
+        let lineTool=document.querySelector(".fa-grip-lines-vertical");
+        let cTool="rectTool";
+        canvasBoard.height=window.innerHeight;
+        canvasBoard.width=window.innerWidth;
+        let tool=canvasBoard.getContext("2d");
+        let body=document.querySelector("body")
+        let boardTop=canvasBoard.getBoundingClientRect().top;
+        let boardLeft=canvasBoard.getBoundingClientRect().left;
+    
+        let redcolor=document.querySelector(".red");
+        let greencolor=document.querySelector(".green");
+        let bluecolor=document.querySelector(".blue");
+        let pen=document.querySelector(".fa-pen-fancy");
+    
+        redcolor.addEventListener("click",function(){
+            tool.strokeStyle="lightcoral";
+        })
+        greencolor.addEventListener("click",function(){
+            tool.strokeStyle="lightgreen";
+        })
+        bluecolor.addEventListener("click",function(){
+            tool.strokeStyle="lightskyblue";
+        })
+    
+        rectTool.addEventListener("click",function(){
+                cTool="rectTool";
+        })
+    
+        lineTool.addEventListener("click",function(){
+            cTool="lineTool";
+        })
+        pen.addEventListener("click",function(){
+            drawing=true;
+        })
+        let xi,yi,xf,yf,drawing=false;
+        body.addEventListener("mousedown",function(e){
+    
+            xi=e.clientX+boardLeft;
+            yi=e.clientY-boardTop;
+        })
+    
+        body.addEventListener("mouseup",function(e){
+             xf=e.clientX+boardLeft;
+             yf=e.clientY-boardTop;
+             let width=xf-xi;
+             let height=yf-yi;
+             if(cTool=="rectTool"){
+             tool.strokeRect(xi,yi,width,height);
+             }
+             else{
+                 tool.beginPath();
+                 tool.moveTo(xi,yi);
+                 tool.lineTo(xf,yf);
+                 tool.stroke();
+    
+             }
+            
+        })
+    
+        body.addEventListener("mousemove",function(e){
+            if(drawing==true){
+            xf=e.clientX;
+            xy=e.clientY;
+            tool.lineTo(xf,yf);
+            tool.stroke();
+            xi=xf;
+            yi=yf;
+            }
+            
+    
+        })
+        
+    
+    </script>
+        
+
+       
+</body>
+
+
+</html>

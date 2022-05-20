@@ -1,0 +1,87 @@
+.icons{
+    border: 1px solid grey;
+    margin: auto;
+    border-radius: 10px;
+    width: 80vw;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.tool-img{
+    width: 80px;
+    height: 60px;
+}
+.option{
+    border: 1px solid grey;
+    height: 35px;
+    width: 100px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    display: none;
+    
+}
+.fas{
+    font-size: 3rem;
+   }
+.size1{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.size2{
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.size3{
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.size4{
+    height: 19px;
+    width: 19px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+
+
+.color{
+    border: 1px solid grey;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+
+}
+.red{
+    /* border: 1px solid red; */
+    border-radius: 50%;
+    height: 35px;
+    width:  35px;
+    background-color: lightcoral;
+}
+.green{
+    border-radius: 50%;
+    height: 35px;
+    width:  35px;
+    background-color: lightgreen;
+}
+.blue{
+    border-radius: 50%;
+    height: 35px;
+    width:  35px;
+    background-color: lightskyblue;
+}
